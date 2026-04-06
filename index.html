@@ -1,115 +1,266 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+:root {
+    /* Paleta de Cores */
+    --primary-color: #004080;
+    --secondary-color: #0066cc;
+    --accent-color: #ffcc00;
+    --accent-hover: #e6b800;
+    --text-dark: #2d3436;
+    --text-light: #ffffff;
+    --bg-light: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portal oficial do Colégio Estadual Dom Carlos. Informações sobre cursos, agenda escolar e contato.">
-    <title>Colégio Estadual Dom Carlos | Educação e Compromisso</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
+/* Reset Moderno */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<body>
-    <header>
-        <div class="header-content">
-            <h1>Colégio Estadual Dom Carlos</h1>
-            <p>Educação, cidadania e compromisso com o futuro</p>
-        </div>
-    </header>
+html {
+    scroll-behavior: smooth;
+}
 
-    <nav aria-label="Navegação Principal">
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#agenda">Agenda</a>
-        <a href="#contato">Contato</a>
-    </nav>
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
 
-    <section class="hero" id="inicio">
-        <div class="hero-overlay">
-            <h2>Bem-vindo ao nosso portal escolar</h2>
-            <p>Informações atualizadas para alunos, pais e professores.</p>
-            <a href="#sobre" class="btn">Conhecer o Colégio</a>
-        </div>
-    </section>
+/* Cabeçalho */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 3rem 1rem;
+    animation: fadeIn 2s ease-in-out; /* Animação de fade-in */
+}
 
-    <main class="container">
-        <article id="sobre" class="info-box">
-            <h2><i class="fas fa-school"></i> Sobre o Colégio</h2>
-            <p>
-                O Colégio Estadual Dom Carlos tem como missão oferecer ensino de qualidade, 
-                promovendo o desenvolvimento acadêmico, social e humano dos estudantes.
-                Aqui valorizamos o respeito, a disciplina e a participação ativa da comunidade. 
-            </p>
-        </article>
+header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsividade fluida */
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-        <section id="cursos" class="section-padding">
-            <h2 class="section-title">Nossos Cursos</h2>
-            <div class="cards">
-                <div class="card">
-                    <i class="fas fa-child fa-2x"></i>
-                    <h3>Ensino Fundamental</h3>
-                    <p>Período Integral</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-book fa-2x"></i>
-                    <h3>Ensino Médio</h3>
-                    <p>Turno Matutino</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-code fa-2x"></i>
-                    <h3>Técnico em Sistemas (TDS)</h3>
-                    <p>Turno Matutino</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-chalkboard-teacher fa-2x"></i>
-                    <h3>Formação de Docentes</h3>
-                    <p>Turno Matutino</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-user-graduate fa-2x"></i>
-                    <h3>EJA</h3>
-                    <p>Turno Noturno</p>
-                </div>
-            </div>
-        </section>
+header p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
 
-        <section id="agenda" class="info-box">
-            <h2><i class="fas fa-calendar-alt"></i> Agenda Escolar 2026</h2>
-            <ul class="agenda-list">
-                <li>
-                    <span class="date">25 Mar</span>
-                    <span class="event"><strong>Reunião de Pais e Mestres</strong> - 19h</span>
-                </li>
-                <li>
-                    <span class="date">10 Abr</span>
-                    <span class="event"><strong>Feira de Ciências e Tecnologia</strong> - 09h às 16h</span>
-                </li>
-                <li>
-                    <span class="date">05 Mai</span>
-                    <span class="event"><strong>Início das Avaliações do 1º Bimestre</strong></span>
-                </li>
-                <li>
-                    <span class="date">15 Jun</span>
-                    <span class="event"><strong>Semana Cultural</strong> - Atividades diversas</span>
-                </li>
-            </ul>
-        </section>
-    </main>
+/* Navegação Sticky (Fixa ao rolar) */
+nav {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease;
+}
 
-    <footer id="contato">
-        <div class="footer-container">
-            <div class="footer-info">
-                <p><strong>Colégio Estadual Dom Carlos</strong></p>
-                <p><i class="fas fa-envelope"></i> contato@domcarlos.edu.br</p>
-                <p><i class="fas fa-phone"></i> (00) 1234-5678</p>
-            </div>
-            <div class="footer-copy">
-                <p>© 2026 Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Seção Hero com Overlay */
+.hero {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1581091870621-86e8da5d8e02?auto=format&fit=crop&q=80&w=1080') 
+                no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    animation: fadeInUp 2s ease-in-out; /* Animação da hero */
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Cards com Grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border-bottom: 4px solid var(--secondary-color);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.card i {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+.card:hover i {
+    color: var(--accent-color);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Agenda */
+#agenda li {
+    background-color: white;
+    margin-bottom: 12px;
+    padding: 20px;
+    border-left: 6px solid var(--primary-color);
+    border-radius: 4px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+}
+
+#agenda li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    font-size: 1.1rem;
+}
+
+footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .footer-info p {
+    margin-bottom: 5px;
+}
+
+footer .footer-copy {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Ajustes Mobile */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
